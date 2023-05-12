@@ -1,11 +1,22 @@
-import code from './assets/code.webp';
+import camp from './assets/camp.jpg';
 import foundrySupport from './assets/foundry_support.webp';
 import museumOfCandy from './assets/museum_of_candy.webp';
 
 export const projects = [
     {
+        title: 'Yelp Camp',
+        description: 'The final project for The Web Developer Bootcamp Udemy course by Colt Steele. This project was the culmination of learning Express, MongoDB, middleware, schemas, routing, authentication, authorization, and encryption. Users can create camp sites and add reviews. Anyone can see the list of all camp grounds and see their location on a map. Check it out!',
+        topics: ['Express', 'MongoDB', 'joi', 'JavaScript', 'HTML5', 'EJS', 'Bootstrap'],
+        image: {
+            src: camp,
+            href: 'https://yelpcamp-8g64.onrender.com/',
+            alt: 'Code'
+        },
+        github: 'https://github.com/JesusLegaspy/YelpCamp',
+    },
+    {
         title: 'Museum of Candy',
-        description: 'The museum of candy site is an exercise of making a responsive web page. On wider screens, the layout has analternating text - picture patter.While on narrower screens, the text - picture pattern is preserved by aclever Bootstrap trick on changing the order. The top menu bar changes size depending on screen width. A little bit of JavaScript magic is used to transition the top menu bar color when the user scrolls the page. The page includes fonts from Google to complement the aesthetic.',
+        description: 'The museum of candy site is an exercise of making a responsive web page. On wider screens, the layout has analternating patter. While on narrower screens, the pattern is preserved by aclever Bootstrap trick on changing the order. The top menu bar changes size depending on screen width. A little bit of JavaScript magic is used to transition the top menu bar color when the user scrolls the page. The page includes fonts from Google to complement the aesthetic.',
         topics: [
             'HTML5',
             'Bootstrap',
@@ -16,17 +27,8 @@ export const projects = [
             src: museumOfCandy,
             href: '/candy',
             alt: 'alt'
-        }
-    },
-    {
-        title: 'Future Project',
-        description: 'A future project will focus on using JavaScript to provide user feedback on web elements. The page will edit the DOM with a mix of vanilla JavaScript and some JQuery functions.',
-        topics: [],
-        image: {
-            src: code,
-            href: '',
-            alt: 'Code'
-        }
+        },
+        github: 'https://github.com/JesusLegaspy/legaspy.dev/tree/main/src/projects/candy',
     }
 ]
 
