@@ -54,7 +54,7 @@ function Item({ info }) {
                 <div className="row">
                     <div className="col">
                         <p className="px-5">
-                            {info.description}
+                            {info.description} {info.github ? <a href={info.github} target="_blank" rel="noreferrer">Github <i class="bi bi-box-arrow-up-right"></i></a> : ''}
                         </p>
                     </div>
                 </div>
