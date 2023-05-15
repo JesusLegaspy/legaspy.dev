@@ -6,8 +6,9 @@
   --color-quintuple: #696D7D;
 }
 
-
-.body {}
+ul {
+  list-style-type: none;
+}
 
 .home {
   background-color: var(--color-primary);

@@ -20,6 +20,10 @@ function NavigationBar({ projRef, expRef, aboutRef, contactRef }) {
                     <a className="nav-link" href="#contact" onClick={() => scrollCallback(contactRef)}>CONTACT</a>
                 </nav>
             </div>
+            <div className='flex-fill'></div>
+            <span className='navbar-text d-flex align-self-end p-3 text-secondary d-none d-sm-block'>
+                <a href='https://github.com/JesusLegaspy/legaspy.dev'><i className="bi bi-github"></i>&nbsp;View this on Github</a>
+            </span>
         </div >
     );
 }
@@ -82,37 +86,17 @@ function About({ refProps }) {
             <div className="row align-items-center">
                 <div className="col-md-7">
                     <p className="p-5">
-                        Not being afraid with trying new things, and sometimes breaking them, I have a knack with problem solving and
-                        troubleshooting. Whether being my hobbies with cars or electronics to digital art, when I like something I go all
-                        in. I left my last job to further my interest with software development. I'm currently learning technologies in the
-                        ever-changing, and exciting, field of software development.
+                        A bachelors graduate of the University of Texas at Austin with a Software Engineering degree, I worked in the movie industry creating Python, Lua, and C++ scripts to assist industry-leading studios in their creative 3D lighting renders. On the side, I found an interest in connecting people with web technologies like React, NodeJS, and JavaScript, and made a jump to focus my career in full stack web development.
                     </p>
                 </div>
                 <div className="col-md-5 text-center">
-                    <div className="row justify-content-center align-items-center">
-                        <div className="col-2">
-                            <svg height="200" width="40">
-                                <polygon points="0,0,20,200,40,0" />
-                            </svg>
-                        </div>
-                        <div className="col-2">
-                            <p>JavaScript</p>
-                            <p>React</p>
-                            <p>HTML5</p>
-                            <p>CSS</p>
-                        </div>
-                        <div className="col-2"></div>
-                        <div className="col-2">
-                            <svg height=" 200" width="40">
-                                <polygon points="0,0,20,200,40,0" />
-                            </svg>
-                        </div>
-                        <div className="col-2">
-                            <p>Python</p>
-                            <p>Lua</p>
-                            <p>Bash Script</p>
-                            <p>C++</p>
-                        </div>
+                    <div className="row justify-content-center align-items-center text-md-start">
+                        <ul>
+                            <a href='https://www.linkedin.com/in/jesuslegaspy'><li><i className="bi bi-linkedin"></i> https://www.linkedin.com/in/jesuslegaspy</li></a>
+                            <a href='https://github.com/JesusLegaspy'><li><i className="bi bi-github"></i> https://github.com/JesusLegaspy</li></a>
+                            <a href='https://github.com/JesusLegaspyFoundry'><li><i className="bi bi-github"></i> https://github.com/JesusLegaspyFoundry</li></a>
+                            <a href='https://time.is/CT'><li><i className="bi bi-clock"></i> Central Time Zone</li></a>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -124,18 +108,13 @@ function About({ refProps }) {
 function Contact({ refProps }) {
     const [firstNumber, setFirstNumber] = useState(null);
     const [secondNumber, setSecondNumber] = useState(null);
-    const [linkedin, setLinkedin] = useState('');
     const [email, setEmail] = useState('');
-    const [timezone, setTimezone] = useState('');
-    const [github, setGithub] = useState('');
+    const [isLocked, setIsLocked] = useState(true);
 
     const userInput = useRef(null)
 
     const contact = {
-        linkedin: "xor`fdkrtrdi.mh.lnb-mhcdjmhk-vvv..9rossg",
-        email: "lnb-sknakh`l?xor`fdk",
-        timezone: "dlhS\u001fcq`cm`sR\u001fk`qsmdB",
-        github: "xqcmtnExor`fdKrtrdI.lnb-atgshf..9rossg"
+        email: "lnb-smdr?xor`fdk-rtrdi",
     }
 
     const descrambler = (text) => {
@@ -167,28 +146,15 @@ function Contact({ refProps }) {
         const userResult = Number(userInput.current.value);
         const actualResult = firstNumber + secondNumber;
         if (userResult === actualResult) {
-            setLinkedin(descrambler(contact.linkedin));
             setEmail(descrambler(contact.email));
-            setTimezone(descrambler(contact.timezone));
-            setGithub(descrambler(contact.github));
+            document.querySelector('#closeModal').click();
+            setIsLocked(false);
         }
     }
 
-    function renderLinkedin() {
-        if (linkedin) return <a href={linkedin} target="_blank" rel="noreferrer">{linkedin}</a>;
-        return <span id="linkedin" className="blur">https://www.linkedin.com/in/gooseIaperpj</span>;
-    }
     function renderEmail() {
-        if (email) return <a href={"mailto:" + email} target="_blank" rel="noreferrer">{email}</a>;
-        return <span id="email" className="blur">Iojcrqj@gmail.com</span>;
-    }
-    function renderTimezone() {
-        if (timezone) return <span id="timezone">Central Time Zone</span>;
-        return <span id="timezone" className="blur">Wooooooo</span>;
-    }
-    function renderGithub() {
-        if (github) return <a href={github} target="_blank" rel="noreferrer">{github}</a>;
-        return <span id="github" className="blur">https://github.com/FueraIwpesqgUzxcfig</span>;
+        if (email) return <a href={"mailto:" + email} target="_blank" rel="noreferrer"> {email}</a>;
+        return <span id="email" className="blur"> Iojcrqjewdydf32@gmail.com</span>;
     }
 
     return (
@@ -196,16 +162,13 @@ function Contact({ refProps }) {
             <Title title="Contact" />
             <div className="row justify-content-center">
                 <div className="col text-center">
-                    <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-bs-toggle="modal"
+                    <div data-bs-toggle={isLocked ? "modal" : ""}
                         data-bs-target="#requestModal"
                         id="request-contact"
-                        onClick={() => populate()}
-                    >
-                        I'm not a robot
-                    </button>
+                        onClick={() => populate()}>
+                        <p>Start a conversation{isLocked ? '. Click to reveal.' : ''}</p>
+                        <p><i className="bi bi-envelope"></i> {renderEmail()}</p>
+                    </div>
 
                     <div className="modal fade" id="requestModal" tabIndex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered">
@@ -230,24 +193,8 @@ function Contact({ refProps }) {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="row justify-content-center">
-                <div className="col-8 col-md-7 col-lg-6 col-xl-5">
-                    <ul className="list-unstyled ps-1 ps-md-2 ps-lg-4 ps-xl-5 ms-xl-5">
-                        <li>
-                            <i className="bi bi-linkedin"></i>
-                            {renderLinkedin()}
-                        </li>
-                        <li><i className="bi bi-envelope"></i> {renderEmail()}</li>
-                        <li><i className="bi bi-clock"></i>{renderTimezone()}</li>
-                        <li>
-                            <i className="bi bi-github"></i>
-                            {renderGithub()}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 }
 
@@ -271,6 +218,11 @@ function Home() {
                                 <Contact refProps={aboutRef} />
                             </main>
                         </div>
+                        <footer className="footer bg-dark py-3 mt-auto d-block d-sm-none">
+                            <div className="container text-center align-items-center">
+                                <span className="text-secondary"><a href='https://github.com/JesusLegaspy/legaspy.dev'><i className="bi bi-github"></i>&nbsp;View this on Github</a></span>
+                            </div>
+                        </footer>
                     </div>
                 </div>
             </div>
