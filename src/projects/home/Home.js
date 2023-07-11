@@ -86,7 +86,7 @@ function About({ refProps }) {
             <div className="row align-items-center">
                 <div className="col-md-7">
                     <p className="p-5">
-                        A bachelors graduate of the University of Texas at Austin with a Software Engineering degree, I worked in the movie industry creating Python, Lua, and C++ scripts to assist industry-leading studios in their creative 3D lighting renders. On the side, I found an interest in connecting people with web technologies like React, NodeJS, and JavaScript, and made a jump to focus my career in full stack web development.
+                        A bachelors graduate of the University of Texas at Austin with a Software Engineering degree, I worked in the movie industry creating Python, Lua, and C++ scripts to assist industry-leading studios in their creative 3D lighting renders. On the side, I found an interest in connecting people with web technologies like React, NodeJS, and JavaScript. I'm currently working towards being a well-rounded developer across multiple disciplines.
                     </p>
                 </div>
                 <div className="col-md-5 text-center">
